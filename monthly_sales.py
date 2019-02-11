@@ -37,10 +37,17 @@ dataImport = pd.read_csv(filePath)
 
 #Create a list of unique products
 uniqueProducts = []
+productPrice = []
 for x in dataImport['product']:
 	if x not in uniqueProducts:
 		uniqueProducts.append(x)
-print(uniqueProducts)
+
+# Calculate Sales Price by Product
+salesPrice = dataImport.groupby(dataImport['product']).sum()
+salesPrice = salesPrice.sort_values(by=['sales price'], ascending=False)
+print(salesPrice)
+
+	
 
 
 
