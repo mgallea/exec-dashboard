@@ -6,9 +6,13 @@ import pandas as pd
 import matplotlib.pyplot as plot
 import matplotlib.ticker as ticker
 
+# Function to Convert Month Code to Month
 
-
-
+def month_converter(monthCode):
+	full_month = {'01':'January','02':'February','03':'March','04':'April',
+	'05':'May','06':'June','07':'July','08':'August','09':'September','10':'October',
+	'11':'November', '12':'December'}
+	return full_month[monthCode]
 
 
 
