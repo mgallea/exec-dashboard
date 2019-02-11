@@ -14,6 +14,19 @@ def month_converter(monthCode):
 	'11':'November', '12':'December'}
 	return full_month[monthCode]
 
+# Import the file
+print("")
+print ("Welcome to the Executive Sales Dashboard Helper Tool.")
+while True:
+	year = input("What year's sales data would you like to analyze? Please use YYYY: ")
+	month = input("What month's sales data would you like to analyze? Please use MM: ")
+	filename = "sales-"+year+month+".csv"
+	print(filename)
+
+	if not os.path.isfile(filename):
+		print("Uh oh! We're having some trouble finding that file. Please make sure you have access to the appropriate sales file.")
+	else:
+		break
 
 
 print("-----------------------")
