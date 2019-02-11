@@ -33,9 +33,15 @@ while True:
 
 
 # Open the CSV File
-
 dataImport = pd.read_csv(filePath)
-print(dataImport)
+
+#Create a list of unique products
+uniqueProducts = []
+for x in dataImport['product']:
+	if x not in uniqueProducts:
+		uniqueProducts.append(x)
+print(uniqueProducts)
+
 
 
 print("-----------------------")
