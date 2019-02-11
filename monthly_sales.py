@@ -17,16 +17,25 @@ def month_converter(monthCode):
 # Import the file
 print("")
 print ("Welcome to the Executive Sales Dashboard Helper Tool.")
+print("To use this dashboard tool, please make sure your files are in a folder titled 'Data'")
+print("")
+
 while True:
 	year = input("What year's sales data would you like to analyze? Please use YYYY: ")
 	month = input("What month's sales data would you like to analyze? Please use MM: ")
 	filename = "sales-"+year+month+".csv"
-	print(filename)
+	filePath = "Data/"+filename
 
 	if not os.path.isfile(filename):
 		print("Uh oh! We're having some trouble finding that file. Please make sure you have access to the appropriate sales file.")
 	else:
 		break
+
+
+# Open the CSV File
+
+dataImport = pd.read_csv(filePath)
+print(dataImport)
 
 
 print("-----------------------")
