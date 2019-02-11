@@ -1,8 +1,16 @@
 # monthly_sales.py
 
-# TODO: import some modules and packages here
+# Import Modules
+import os
+import pandas as pd
+import matplotlib.pyplot as plot
+import matplotlib.ticker as ticker
 
-# TODO: write some Python code here to produce the desired functionality...
+
+
+
+
+
 
 print("-----------------------")
 print("MONTH: March 2018")
