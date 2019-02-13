@@ -17,6 +17,7 @@ def month_converter(monthCode):
 # Import the file
 print("")
 print ("Welcome to the Executive Sales Dashboard Helper Tool.")
+print("")
 print("To use this dashboard tool, please make sure your files are in a folder titled 'Data'")
 print("")
 
@@ -74,4 +75,23 @@ while counter < uniqueCounter:
 	counter = counter + 1
 
 print("-----------------------")
-print("VISUALIZING THE DATA...")
+print("VISUALIZED DATA")
+
+# Create a list with all the item names
+visIndex = salesPrice.index.tolist()
+
+# Create a list with all the prices
+x = 0
+visPrice = []
+while x < uniqueCounter:
+	visPrice.append(salesPrice.iloc[x][2])
+	x = x + 1
+
+
+# Create the plot to display
+fig, diagram = plot.subplots()
+fig.set_figheight(6)
+fig.set_figwidth(21)
+#diagram.barh(visIndex,salesPrice[])
+fmt = '${x:,.2f}'
+
