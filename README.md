@@ -1,18 +1,10 @@
-# exec-dash-starter-py
+# Executive Dashboard for Sales Administration
 
-A starter repository for the "Executive Dashboard" project.
+This application is designed to help analyze and display monthly sales data for an ecommerce company.
 
 ## Prerequisites
 
   + Python 3.7
-
-## Installation
-
-Fork this [starter project repository](https://github.com/prof-rossetti/exec-dash-starter-py) under your own control, then clone or download the resulting repository onto your computer. Then navigate there from the command line:
-
-```sh
-cd exec-dash-starter-py
-```
 
 ## Usage
 
