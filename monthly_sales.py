@@ -26,7 +26,7 @@ while True:
 	filename = "sales-"+year+month+".csv"
 	filePath = "Data/"+filename
 
-	if not os.path.isfile(filename):
+	if not os.path.isfile(filePath):
 		print("Uh oh! We're having some trouble finding that file. Please make sure you have access to the appropriate sales file.")
 	else:
 		break
@@ -34,6 +34,7 @@ while True:
 
 # Open the CSV File
 dataImport = pd.read_csv(filePath)
+uniqueCounter = 0
 
 #Create a list of unique products
 uniqueProducts = []
@@ -41,30 +42,36 @@ productPrice = []
 for x in dataImport['product']:
 	if x not in uniqueProducts:
 		uniqueProducts.append(x)
+		uniqueCounter = uniqueCounter + 1
 
 # Calculate Sales Price by Product
 salesPrice = dataImport.groupby(dataImport['product']).sum()
 salesPrice = salesPrice.sort_values(by=['sales price'], ascending=False)
-print(salesPrice)
 
-	
+# Convert the Month Header
+monthName  = month_converter(month)
 
+# Total Sales
+totalSalesPrice = salesPrice['sales price'].sum()
 
+print("")
+print("")
+print("-----------------------")
+print("MONTH: " + monthName + " " + year)
 
 print("-----------------------")
-print("MONTH: March 2018")
 
 print("-----------------------")
-print("CRUNCHING THE DATA...")
-
-print("-----------------------")
-print("TOTAL MONTHLY SALES: $12,000.71")
+print("TOTAL MONTHLY SALES: $" + str("%0.2f" % totalSalesPrice))
 
 print("-----------------------")
 print("TOP SELLING PRODUCTS:")
-print("  1) Button-Down Shirt: $6,960.35")
-print("  2) Super Soft Hoodie: $1,875.00")
-print("  3) etc.")
+
+# print out the ranked products and total sales
+counter = 0
+while counter < uniqueCounter:
+	print(str(counter + 1) + ") " + str(salesPrice.index[counter]).ljust(20) + "   $"  + str("%0.2f" % salesPrice.iloc[counter][2]).rjust(8))
+	counter = counter + 1
 
 print("-----------------------")
 print("VISUALIZING THE DATA...")
