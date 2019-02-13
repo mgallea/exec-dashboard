@@ -75,7 +75,7 @@ while counter < uniqueCounter:
 	counter = counter + 1
 
 print("-----------------------")
-print("VISUALIZED DATA")
+print("VISUALIZING DATA...")
 
 # Create a list with all the item names
 visIndex = salesPrice.index.tolist()
@@ -87,11 +87,23 @@ while x < uniqueCounter:
 	visPrice.append(salesPrice.iloc[x][2])
 	x = x + 1
 
-
 # Create the plot to display
 fig, diagram = plot.subplots()
-fig.set_figheight(6)
-fig.set_figwidth(21)
-#diagram.barh(visIndex,salesPrice[])
-fmt = '${x:,.2f}'
+fig.set_figheight(5)
+fig.set_figwidth(10)
+diagram.barh(visIndex,visPrice)
 
+
+# Format the plot
+tickMark = ticker.StrMethodFormatter('${x:,.2f}')
+diagram.set_ylabel("Products")
+diagram.set_xlabel("Dollars")
+diagram.set_title("Total Sales")
+diagram.xaxis.set_major_formatter(tickMark)
+
+# Format the text
+for h, j in enumerate(visPrice):
+	diagram.text(j , h , "   ${0:,.2f}".format(j))
+
+# Display the plot
+plot.show()
