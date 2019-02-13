@@ -89,8 +89,9 @@ while x < uniqueCounter:
 
 # Create the plot to display
 fig, diagram = plot.subplots()
-fig.set_figheight(5)
-fig.set_figwidth(10)
+#fig.set_figheight(10)
+#fig.set_figwidth(5)
+fig.set_size_inches(10,5,forward = True)
 diagram.barh(visIndex,visPrice)
 
 
@@ -98,7 +99,7 @@ diagram.barh(visIndex,visPrice)
 tickMark = ticker.StrMethodFormatter('${x:,.2f}')
 diagram.set_ylabel("Products")
 diagram.set_xlabel("Dollars")
-diagram.set_title("Total Sales")
+diagram.set_title("Total Sales - " + monthName + " " + year)
 diagram.xaxis.set_major_formatter(tickMark)
 
 # Format the text
