@@ -5,14 +5,8 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plot
 import matplotlib.ticker as ticker
-
-# Function to Convert Month Code to Month
-
-def month_converter(monthCode):
-	full_month = {'01':'January','02':'February','03':'March','04':'April',
-	'05':'May','06':'June','07':'July','08':'August','09':'September','10':'October',
-	'11':'November', '12':'December'}
-	return full_month[monthCode]
+from functions import *
+import locale
 
 # Import the file
 print("")
@@ -63,7 +57,7 @@ print("MONTH: " + monthName + " " + year)
 print("-----------------------")
 
 print("-----------------------")
-print("TOTAL MONTHLY SALES: $" + str("%0.2f" % totalSalesPrice))
+print("TOTAL MONTHLY SALES: " + to_usd(totalSalesPrice))
 
 print("-----------------------")
 print("TOP SELLING PRODUCTS:")
@@ -71,7 +65,7 @@ print("TOP SELLING PRODUCTS:")
 # print out the ranked products and total sales
 counter = 0
 while counter < uniqueCounter:
-	print(str(counter + 1) + ") " + str(salesPrice.index[counter]).ljust(20) + "   $"  + str("%0.2f" % salesPrice.iloc[counter][2]).rjust(8))
+	print(str(counter + 1) + ") " + str(salesPrice.index[counter]).ljust(20) + "   "  + to_usd(salesPrice.iloc[counter][2]).rjust(10))
 	counter = counter + 1
 
 print("-----------------------")
